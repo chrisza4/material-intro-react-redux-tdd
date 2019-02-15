@@ -17,6 +17,7 @@ function greeting (person) {
 		}
 	} 
 	
+	
 	if (isUpperCase(person)) {
 		return `HELLO ${person}!`
 	}

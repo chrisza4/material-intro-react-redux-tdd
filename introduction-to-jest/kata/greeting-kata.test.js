@@ -25,4 +25,5 @@ describe('greeting', () => {
 	it(`given c`, () => {
 		expect(greeting(["Attapon","KONGER","Pim"])).toEqual('Hello, Attapon, Pim and HELLO KONGER!')
 	})
+	
 })
