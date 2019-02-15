@@ -7,7 +7,8 @@ function greeting (person) {
 				let p = person.find(checkStr)
 				let index = person.indexOf(p)
 				person.splice(index, 1)
-				return `Hello, ${person.join(', ')} and HELLO ${p}!`
+				name = formatArray(person)
+				return `Hello, ${name}. AND HELLO ${p}!`
 			} else {
 				name = formatArray(person)
 				return `Hello, ${name}`
@@ -16,7 +17,6 @@ function greeting (person) {
 			return `Hello, ${person[0]} and ${person[1]}`
 		}
 	} 
-	
 	
 	if (isUpperCase(person)) {
 		return `HELLO ${person}!`

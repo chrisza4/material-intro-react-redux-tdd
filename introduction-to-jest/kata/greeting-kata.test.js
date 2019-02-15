@@ -23,7 +23,6 @@ describe('greeting', () => {
 	})
 
 	it(`given c`, () => {
-		expect(greeting(["Attapon","KONGER","Pim"])).toEqual('Hello, Attapon, Pim and HELLO KONGER!')
+		expect(greeting(["Attapon","KONGER","Pim"])).toEqual('Hello, Attapon and Pim. AND HELLO KONGER!')
 	})
-	
 })
