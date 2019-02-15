@@ -391,3 +391,8 @@ body {
   left: 60px;
   bottom: 2px;
 }
+
+.important {
+	font-weight: bold;
+	color: red;
+}

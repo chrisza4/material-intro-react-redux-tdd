@@ -30,6 +30,7 @@ export default class TodoItem extends Component {
 
   render() {
     const { todo, completeTodo, deleteTodo } = this.props
+    const labelClassname = 'ax-todo-label' + (todo.important ? ' important' : '')
     let element
     if (this.state.editing) {
       element = (
@@ -39,7 +40,7 @@ export default class TodoItem extends Component {
             text={todo.text}
             editing={this.state.editing}
             onSave={(text) => this.handleSave(todo.id, text)}
-          />
+          />  
         </div>
       )
     } else {
@@ -49,9 +50,15 @@ export default class TodoItem extends Component {
                  type="checkbox"
                  checked={todo.completed}
                  onChange={() => completeTodo(todo.id)} />
-          <label className='ax-todo-label' onDoubleClick={this.handleDoubleClick}>
+          <label className={labelClassname} onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
+          {
+            todo.completed ?
+            <div className='todo-completed-date' onDoubleClick={this.handleDoubleClick}>
+              {todo.completedDate}
+            </div> : ''
+          }
           <button className="destroy"
                   onClick={() => deleteTodo(todo.id)} />
         </div>

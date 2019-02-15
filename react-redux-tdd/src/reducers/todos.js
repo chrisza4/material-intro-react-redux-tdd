@@ -6,6 +6,8 @@ import {
   COMPLETE_ALL_TODOS,
   CLEAR_COMPLETED
 } from '../constants/ActionTypes'
+import Moment from 'moment'
+
 
 const initialState = [
   {
@@ -18,6 +20,13 @@ const initialState = [
     completed: false,
     id: 1,
     important: true
+  },
+  {
+    text: 'Sleep',
+    completed: true,
+    id: 2,
+    important: true,
+    completedDate: Moment('2019-02-15').format('DD MMM YYYY')
   },
 ]
 
@@ -48,7 +57,7 @@ export default function todos(state = initialState, action) {
     case COMPLETE_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          { ...todo, completed: !todo.completed } :
+          { ...todo, completed: !todo.completed, completedDate: Moment('2019-02-15').format('DD MMM YYYY') } :
           todo
       )
 
@@ -56,7 +65,8 @@ export default function todos(state = initialState, action) {
       const areAllMarked = state.every(todo => todo.completed)
       return state.map(todo => ({
         ...todo,
-        completed: !areAllMarked
+        completed: !areAllMarked,
+        completedDate: Moment('2019-02-15').format('DD MMM YYYY')
       }))
 
     case CLEAR_COMPLETED:

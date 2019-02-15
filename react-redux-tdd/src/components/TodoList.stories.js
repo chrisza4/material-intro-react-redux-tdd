@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import TodoList from './TodoList'
+import Moment from 'moment'
 
 const actions = {
   editTodo: action('EditTodo'),
@@ -51,7 +52,8 @@ storiesOf('TodoList', module)
       {
         text: 'Use Redux',
         completed: true,
-        id: 0
+        id: 0,
+        completedDate: Moment('2019-02-15').format('DD MMM YYYY')
       },
       {
         text: 'Use React',
