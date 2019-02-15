@@ -32,23 +32,11 @@ function isUpperCase (word) {
 }
 
 function formatarrayNames(person){
-  var text = '';
-  for(let i=0; i < person.length; i++){
-    if(isUpperCase(person[i])){
-      text += person[i]
-    }else{
-      if(i == person.length-1){
-        text += ' and '+person[i];
-      }
-      else if(i == person.length-2){
-        text += person[i];
-      }
-      else{
-        text += person[i]+', ';
-      }
-    }
+  if(person.length > 1){
+    var name = person.pop();
+    return person.join(', ')+' and '+name;
   }
-  return text;
+  return person.pop();
 }
 
 module.exports = {
